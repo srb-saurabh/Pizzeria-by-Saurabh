@@ -1,9 +1,9 @@
-# 🍕 Pizzeria Website - Complete Online Ordering System
+# 🍕 Pizzeria by Saurabh - Complete Online Ordering System
 A feature-rich, responsive pizza ordering website with full e-commerce functionality, order history, and admin dashboard capabilities.
 
 ## 🌐 Live Links
 
-- **🌍 Live Demo:** [pizzeria-demo.com](https://your-demo-link.com)
+- **🌍 Live Demo:** 
 - **💻 GitHub Repository:** 
 
 ## 📋 Project Overview
@@ -51,7 +51,7 @@ Toast notifications for user feedback
 Modal-based customization interface
 
 ## 📁 Project Structure
-text
+```
 pizzeria-project/
 │
 ├── index.html              # Main landing page
@@ -71,6 +71,7 @@ pizzeria-project/
 │       └── 50+ pizza images (.jpg/.png)
 │
 └── README.md              # This file
+```
 ### 🚀 Getting Started
 Prerequisites
 Modern web browser (Chrome, Firefox, Safari, Edge)
