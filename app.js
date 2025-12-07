@@ -114,24 +114,51 @@ console.log('Available elements:', Object.keys(els).filter(key => els[key]));
 
 // -- Mobile Menu Functionality --
 function initMobileMenu() {
-  if (!els.mobileMenuToggle || !els.navLinks) return;
+  const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+  const navLinks = document.querySelector('.nav-links');
   
-  els.mobileMenuToggle.addEventListener('click', function() {
+  if (!mobileMenuToggle || !navLinks) {
+    console.error('Mobile menu elements not found!');
+    return;
+  }
+  
+  console.log('Mobile menu elements found, adding listeners...');
+  
+  mobileMenuToggle.addEventListener('click', function(e) {
+    e.stopPropagation();
     const isExpanded = this.getAttribute('aria-expanded') === 'true';
+    console.log('Menu clicked, was expanded:', isExpanded);
+    
     this.setAttribute('aria-expanded', !isExpanded);
     this.classList.toggle('active');
-    els.navLinks.classList.toggle('active');
+    navLinks.classList.toggle('active');
     
-    // Close mobile menu when clicking on a link
+    // Toggle body scroll
     if (!isExpanded) {
-      document.querySelectorAll('.nav-links a').forEach(link => {
-        link.addEventListener('click', () => {
-          els.mobileMenuToggle.setAttribute('aria-expanded', 'false');
-          els.mobileMenuToggle.classList.remove('active');
-          els.navLinks.classList.remove('active');
-        });
-      });
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
     }
+  });
+  
+  // Close menu when clicking outside
+  document.addEventListener('click', function(e) {
+    if (!navLinks.contains(e.target) && !mobileMenuToggle.contains(e.target)) {
+      mobileMenuToggle.setAttribute('aria-expanded', 'false');
+      mobileMenuToggle.classList.remove('active');
+      navLinks.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+  });
+  
+  // Close menu when clicking links
+  navLinks.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      mobileMenuToggle.setAttribute('aria-expanded', 'false');
+      mobileMenuToggle.classList.remove('active');
+      navLinks.classList.remove('active');
+      document.body.style.overflow = '';
+    });
   });
 }
 
