@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>PIZZERIA by Saurabh — Artisan Pizza & Italian Cuisine</title>
+  
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="Order delicious artisan pizzas with fresh ingredients, fast delivery, and customizable options. The best pizza in town!">
+  <meta name="keywords" content="pizza, delivery, Italian food, online ordering, fresh ingredients">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/jpeg" href="images/pizzas/logo.jpg">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+  
+  <!-- Preload critical images -->
+  <link rel="preload" href="images/pizzas/pepperoni.jpg" as="image">
+</head>
+<body>
+  <!-- Skip to main content for accessibility -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- NAVIGATION SECTION -->
+  <header class="site-header">
+    <div class="nav-bar">
+       <!-- Logo with brand name -->
+    <a href="#" class="logo" aria-label="Pizzeria Home">
+      <img src="images/pizzas/logo.jpg" alt="Pizzeria by Saurabh" class="logo-img" width="40" height="40">
+      <div class="logo-text">
+        <span class="logo-main">PIZZERIA</span>
+        <span class="logo-by">by Saurabh</span>
+      </div>
+    </a>
+      
+      <!-- Mobile menu toggle -->
+      <button class="mobile-menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      
+      <!-- Main navigation links -->
+      <nav class="nav-links">
+        <a href="#menu-section">Menu</a>
+        <a href="history.html">Order History</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+        <a href="#deals" class="deal-badge">Hot Deals</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO SECTION -->
+  <section class="hero-main" id="main-content">
+    <!-- Fixed image path and added loading="eager" for critical image -->
+    <img src="images/pizzas/pepperoni.jpg" alt="Delicious Pepperoni Pizza with melted cheese" class="hero-img" loading="eager">
+    <div class="hero-overlay">
+      <h1 class="hero-title">Artisan Pizza Perfection</h1>
+      <p class="hero-subtitle">Handcrafted with fresh ingredients, wood-fired to perfection, delivered hot to your door</p>
+      <div class="hero-actions">
+        <button class="hero-btn" id="order-now-btn">ORDER NOW</button>
+        <button class="hero-btn secondary" id="view-menu-btn">VIEW MENU</button>
+      </div>
+      <!-- Special offer badge -->
+      <div class="special-offer">
+        <span>🔥 Today's Special: 20% OFF on all large pizzas!</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- QUICK STATS BAR -->
+  <section class="stats-bar">
+    <div class="stat-item">
+      <div class="stat-number">30min</div>
+      <div class="stat-label">Avg. Delivery</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-number">50+</div>
+      <div class="stat-label">Pizza Varieties</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-number">4.9★</div>
+      <div class="stat-label">Customer Rating</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-number">24/7</div>
+      <div class="stat-label">Order Support</div>
+    </div>
+  </section>
+
+  <!-- FEATURES PANEL - Highlights key selling points -->
+  <section class="hero-features">
+    <div class="feature">
+      <div class="feature-icon">🍅</div>
+      <h2>Fresh Ingredients</h2>
+      <p>We use only the freshest vegetables, premium meats, and authentic Italian cheeses</p>
+    </div>
+    <div class="feature">
+      <div class="feature-icon">🚀</div>
+      <h2>Fast Delivery</h2>
+      <p>Hot pizza delivered to your door in 30 minutes or less - guaranteed!</p>
+    </div>
+    <div class="feature">
+      <div class="feature-icon">🎨</div>
+      <h2>Fully Customizable</h2>
+      <p>Build your perfect pizza with our wide range of crusts, sauces, and toppings</p>
+    </div>
+  </section>
+
+  <!-- SPECIAL DEALS SECTION -->
+<section id="deals" class="deals-section">
+  <div class="container">
+    <h2 class="section-title">Today's Hot Deals</h2>
+    <div class="deals-grid">
+      <div class="deal-card">
+        <div class="deal-badge">Most Popular</div>
+        <h3>Family Feast</h3>
+        <div class="deal-items">2 Large Pizzas + 1 Medium Pizza</div>
+        <div class="deal-price">
+          <span class="original-price">₹899</span>
+          <span class="current-price">₹699</span>
+          <span class="deal-save">Save ₹200</span>
+        </div>
+        <button class="btn primary" data-deal="family-feast">Add to Cart</button>
+      </div>
+      
+      <div class="deal-card">
+        <div class="deal-badge">Mega Deal</div>
+        <h3>Pizza Bonanza</h3>
+        <div class="deal-items">3 Large Pizzas of Your Choice</div>
+        <div class="deal-price">
+          <span class="original-price">₹999</span>
+          <span class="current-price">₹799</span>
+          <span class="deal-save">Save ₹200</span>
+        </div>
+        <button class="btn primary" data-deal="pizza-bonanza">Add to Cart</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+  <!-- FILTERS SECTION - Search and filter controls -->
+  <section class="filters" aria-label="Pizza filters">
+    <div class="filter-group">
+      <input type="text" id="search" placeholder="Search your favorite pizza..." aria-label="Search pizzas">
+      
+    </div>
+    
+    <!-- Filter navigation tabs -->
+    <div class="filter-nav" role="tablist">
+  <button class="nav-link active" data-filter="all" role="tab" aria-selected="true">All Pizzas</button>
+  <button class="nav-link" data-filter="veg" role="tab" aria-selected="false">🌱 Vegetarian</button>
+  <button class="nav-link" data-filter="nonveg" role="tab" aria-selected="false">🍗 Non-Veg</button>
+  <button class="nav-link" data-filter="chef" role="tab" aria-selected="false">⭐ Chef's Pick</button>
+  <button class="nav-link" data-filter="favorites" role="tab" aria-selected="false">❤️ Favorites</button>
+</div>
+  </section>
+  
+  <!-- MENU SECTION - Pizza catalog dynamically populated by JavaScript -->
+  <section id="menu-section" class="container">
+    <div class="section-header">
+      <h2 class="section-title">Our Pizza Collection</h2>
+      <p class="section-subtitle">Handcrafted with love, baked to perfection</p>
+    </div>
+    
+    <!-- Loading indicator -->
+    <div class="loading-container" id="loading-indicator">
+      <div class="loading-spinner"></div>
+      <p>Loading our delicious menu...</p>
+    </div>
+    
+    <!-- Pizza grid -->
+    <div class="catalog" aria-live="polite" id="pizza-grid">
+      <!-- Pizza cards will be rendered here by JavaScript -->
+    </div>
+    
+    <!-- Empty state -->
+    <div class="empty-state hidden" id="empty-state">
+      <div class="empty-icon">🍕</div>
+      <h3>No pizzas found</h3>
+      <p>Try adjusting your search or filters</p>
+      <button class="btn primary" id="reset-filters">Reset Filters</button>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS SECTION -->
+  <section class="testimonials-section">
+    <div class="container">
+      <h2 class="section-title">What Our Customers Say</h2>
+      <div class="testimonials-grid">
+        <div class="testimonial-card">
+          <div class="testimonial-content">
+            "Best pizza in town! The crust is perfectly crispy and the toppings are always fresh."
+          </div>
+          <div class="testimonial-author">
+            <div class="author-avatar">AR</div>
+            <div class="author-info">
+              <div class="author-name">Aditya Raghavan</div>
+              <div class="author-rating">★★★★★</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-content">
+            "Fast delivery and the pizza arrived piping hot. Will definitely order again!"
+          </div>
+          <div class="testimonial-author">
+            <div class="author-avatar">RS</div>
+            <div class="author-info">
+              <div class="author-name">Rehan Sheikh</div>
+              <div class="author-rating">★★★★★</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-content">
+            "Love the customization options. My picky kids finally agree on pizza toppings!"
+          </div>
+          <div class="testimonial-author">
+            <div class="author-avatar">NK</div>
+            <div class="author-info">
+              <div class="author-name">Narendra Kumar</div>
+              <div class="author-rating">★★★★☆</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT SECTION - Company information -->
+  <section id="about" class="about-section">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-content">
+          <h2 class="section-title">Our Story</h2>
+          <p>Since 2010, Pizzeria has been serving the most delicious artisan pizzas in town. Our secret family recipe and traditional wood-fired ovens create the perfect crust every time.</p>
+          <p>We source our ingredients from local farmers and use authentic Italian techniques to bring you an unforgettable pizza experience.</p>
+          <div class="about-features">
+            <div class="about-feature">
+              <span class="feature-icon">👨‍🍳</span>
+              <span>Expert Chefs</span>
+            </div>
+            <div class="about-feature">
+              <span class="feature-icon">🏆</span>
+              <span>Award Winning</span>
+            </div>
+            <div class="about-feature">
+              <span class="feature-icon">🌱</span>
+              <span>Fresh Ingredients</span>
+            </div>
+          </div>
+        </div>
+        <div class="about-image">
+          <!-- Placeholder for about image -->
+            <img src="images/pizzas/story.jpeg" alt="Artisan pizza being prepared in our kitchen" class="about-img">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT SECTION - Contact information -->
+  <section id="contact" class="contact-section">
+    <div class="container">
+      <h2 class="section-title">Get In Touch</h2>
+      <div class="contact-grid">
+        <div class="contact-info">
+          <div class="contact-item">
+            <span class="contact-icon">📞</span>
+            <div>
+              <h3>Phone</h3>
+              <p>1-800-PIZZERIA</p>
+            </div>
+          </div>
+          <div class="contact-item">
+            <span class="contact-icon">📍</span>
+            <div>
+              <h3>Address</h3>
+              <p>123 Pizza Street, Food City, FC 12345</p>
+            </div>
+          </div>
+          <div class="contact-item">
+            <span class="contact-icon">⏰</span>
+            <div>
+              <h3>Hours</h3>
+              <p>Monday-Sunday: 11 AM - 11 PM</p>
+            </div>
+          </div>
+          <div class="contact-item">
+            <span class="contact-icon">✉️</span>
+            <div>
+              <h3>Email</h3>
+              <p>hello@pizzeria.com</p>
+            </div>
+          </div>
+        </div>
+        <div class="contact-form">
+          <h3>Send us a message</h3>
+          <form id="contact-form">
+            <div class="form-group">
+              <label for="contact-name">Your Name</label>
+              <input type="text" id="contact-name" name="name" required>
+            </div>
+            <div class="form-group">
+              <label for="contact-email">Your Email</label>
+              <input type="email" id="contact-email" name="email" required>
+            </div>
+            <div class="form-group">
+              <label for="contact-message">Message</label>
+              <textarea id="contact-message" name="message" rows="4" required></textarea>
+            </div>
+            <button type="submit" class="btn primary">Send Message</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- NEWSLETTER SECTION -->
+  <section class="newsletter-section">
+    <div class="container">
+      <div class="newsletter-content">
+        <h2>Stay Updated</h2>
+        <p>Subscribe to our newsletter for exclusive deals and new pizza launches</p>
+        <form class="newsletter-form">
+          <input type="email" placeholder="Your email address" required>
+          <button type="submit" class="btn primary">Subscribe</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- CART TOGGLE BUTTON - Fixed position cart button -->
+  <button id="cart-toggle" class="cart-toggle" aria-label="Toggle cart" aria-expanded="false">
+    <span id="cart-count">0</span>
+    <span class="cart-icon">🛒</span>
+  </button>
+
+  <!-- CART DRAWER - Shopping cart sidebar -->
+  <aside id="cart-drawer" class="cart-drawer" aria-hidden="true" aria-label="Shopping cart">
+    <div class="drawer-header">
+      <h2>Your Order</h2>
+      <!-- Close cart button -->
+      <button id="drawer-close" aria-label="Close cart">✕</button>
+    </div>
+    <!-- Cart items container -->
+    <div id="drawer-items" class="drawer-items"></div>
+    <!-- Cart totals section -->
+    <div class="drawer-totals">
+      <div>Subtotal: <span id="subtotal">₹0.00</span></div>
+      <div>Tax (18%): <span id="tax">₹0.00</span></div>
+      <div>Delivery: <span id="delivery-fee">₹40.00</span></div>
+      <div class="total-amount"><strong>Total: <span id="total">₹0.00</span></strong></div>
+      <div class="delivery-notice" id="delivery-notice">
+        Add ₹<span id="free-delivery-amount">460</span> more for FREE delivery!
+      </div>
+    </div>
+    <!-- Cart action buttons -->
+    <div class="drawer-actions">
+      <button id="clear-cart" class="btn secondary">Clear Cart</button>
+      <button id="checkout" class="btn primary">Proceed to Checkout</button>
+    </div>
+  </aside>
+
+  <!-- UNIVERSAL MODAL - For pizza customization, checkout, and other features -->
+  <div id="modal" class="modal hidden" aria-hidden="true" aria-labelledby="modal-title" role="dialog">
+    <div class="modal-content">
+      <!-- Close modal button -->
+      <button id="modal-close" aria-label="Close modal">✕</button>
+      <!-- Modal content container (dynamically populated) -->
+      <div id="modal-content-inner"></div>
+    </div>
+  </div>
+
+  <!-- FOOTER SECTION -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-section">
+          <h3>PIZZERIA by Saurabh</h3>
+          <p>Delivering happiness one pizza at a time since 2010.</p>
+          <div class="social-links">
+ <a href="https://facebook.com/yourpizzeria" target="_blank" aria-label="Facebook">
+    <img src="images/pizzas/fbb.png" alt="Facebook">
+  </a>
+  <a href="https://instagram.com/yourpizzeria" target="_blank" aria-label="Instagram">
+    <img src="images/pizzas/insta_logo.png" alt="Instagram">
+  </a>
+  <a href="https://x.com/yourpizzeria" target="_blank" aria-label="X">
+    <img src="images/pizzas/tw.png" alt="X">
+</div>
+        </div>
+        <div class="footer-section">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="#menu-section">Menu</a></li>
+            <li><a href="history.html">Order History</a></li>
+            <li><a href="#deals">Special Deals</a></li>
+            <li><a href="#about">About Us</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+  <h4>Support</h4>
+  <ul>
+    <li><a href="#contact">Contact Us</a></li>
+    <li><a href="#" onclick="showFAQ()">FAQs</a></li>
+    <li><a href="#" onclick="showDeliveryInfo()">Delivery Info</a></li>
+    <li><a href="#" onclick="showTerms()">Terms of Service</a></li>
+  </ul>
+</div>
+        <div class="footer-section">
+          <h4>Contact Info</h4>
+          <ul>
+            <li>📞 1-800-PIZZERIA</li>
+            <li>📍 123 Pizza Street, Food City</li>
+            <li>⏰ 11AM - 11PM Daily</li>
+            <li>✉️ hello@pizzeria.com</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 Pizzeria. All rights reserved. | Crafted with ❤️ and 🍕</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Back to top button -->
+  <button id="back-to-top" class="back-to-top" aria-label="Back to top">↑</button>
+
+  <!-- MAIN JAVASCRIPT FILE -->
+  <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,790 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Order History - PIZZERIA</title>
+  
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="View your past pizza orders, track deliveries, and reorder your favorites">
+  <meta name="keywords" content="order history, pizza tracking, reorder, delivery status">
+  
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+  
+  <style>
+    .history-container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 2rem 1rem;
+      min-height: 70vh;
+    }
+    
+    .history-header {
+      text-align: center;
+      margin-bottom: 3rem;
+      padding-top: 2rem;
+    }
+    
+    .back-button {
+      background: #b30015;
+      color: white;
+      border: none;
+      padding: 0.8rem 1.5rem;
+      border-radius: 6px;
+      cursor: pointer;
+      margin-bottom: 2rem;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: all 0.3s ease;
+      font-family: inherit;
+      font-size: 1rem;
+    }
+    
+    .back-button:hover {
+      background: #ee4251;
+      transform: translateY(-2px);
+    }
+    
+    .history-stats {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 3rem;
+    }
+    
+    .stat-card {
+      background: #311a06;
+      border-radius: 12px;
+      padding: 1.5rem;
+      text-align: center;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      transition: all 0.3s ease;
+    }
+    
+    .stat-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    }
+    
+    .stat-number {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: #b30015;
+      margin-bottom: 0.5rem;
+    }
+    
+    .stat-label {
+      color: #ccc;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    
+    .history-filters {
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 2rem;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .filter-btn {
+      background: transparent;
+      color: #fffbe6;
+      border: 1px solid #444;
+      padding: 0.6rem 1.2rem;
+      border-radius: 25px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-family: inherit;
+    }
+    
+    .filter-btn.active,
+    .filter-btn:hover {
+      background: #b30015;
+      border-color: #b30015;
+    }
+    
+    .search-box {
+      position: relative;
+      max-width: 300px;
+      width: 100%;
+    }
+    
+    .search-box input {
+      width: 100%;
+      padding: 0.6rem 1rem 0.6rem 2.5rem;
+      border: 1px solid #444;
+      border-radius: 25px;
+      background: #1e120b;
+      color: white;
+      font-size: 0.9rem;
+    }
+    
+    .search-box::before {
+      content: "🔍";
+      position: absolute;
+      left: 0.8rem;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #888;
+    }
+    
+    .orders-grid {
+      display: grid;
+      gap: 1.5rem;
+    }
+    
+    .order-card {
+      background: #311a06;
+      border-radius: 12px;
+      padding: 1.5rem;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      transition: all 0.3s ease;
+      position: relative;
+    }
+    
+    .order-card:hover {
+      border-color: #b30015;
+      transform: translateY(-3px);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+    }
+    
+    .order-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 1rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid #444;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    
+    .order-info {
+      flex: 1;
+    }
+    
+    .order-number {
+      font-weight: 700;
+      color: #b30015;
+      font-size: 1.1rem;
+      margin-bottom: 0.3rem;
+    }
+    
+    .order-date {
+      color: #888;
+      font-size: 0.9rem;
+    }
+    
+    .order-status-badge {
+      padding: 0.4rem 1rem;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    
+    .status-delivered {
+      background: #4CAF50;
+      color: white;
+    }
+    
+    .status-preparing {
+      background: #FF9800;
+      color: white;
+    }
+    
+    .status-out-for-delivery {
+      background: #2196F3;
+      color: white;
+    }
+    
+    .status-cancelled {
+      background: #f44336;
+      color: white;
+    }
+    
+    .order-items-preview {
+      color: #ccc;
+      margin-bottom: 1rem;
+      line-height: 1.5;
+    }
+    
+    .order-total {
+      font-weight: 700;
+      color: #b30015;
+      font-size: 1.2rem;
+      margin-bottom: 1rem;
+    }
+    
+    .order-actions {
+      display: flex;
+      gap: 0.8rem;
+      flex-wrap: wrap;
+    }
+    
+    .order-actions .btn {
+      padding: 0.6rem 1.2rem;
+      font-size: 0.9rem;
+    }
+    
+    .empty-history {
+      text-align: center;
+      padding: 4rem 2rem;
+      grid-column: 1 / -1;
+    }
+    
+    .empty-icon {
+      font-size: 4rem;
+      margin-bottom: 1.5rem;
+      opacity: 0.7;
+    }
+    
+    .empty-history h3 {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      color: #fffbe6;
+    }
+    
+    .empty-history p {
+      color: #ccc;
+      margin-bottom: 2rem;
+      max-width: 400px;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.6;
+    }
+    
+    .pagination {
+      display: flex;
+      justify-content: center;
+      gap: 0.5rem;
+      margin-top: 3rem;
+      flex-wrap: wrap;
+    }
+    
+    .page-btn {
+      background: transparent;
+      color: #fffbe6;
+      border: 1px solid #444;
+      width: 40px;
+      height: 40px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .page-btn.active,
+    .page-btn:hover {
+      background: #b30015;
+      border-color: #b30015;
+    }
+    
+    .page-btn.disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+    
+    .page-btn.disabled:hover {
+      background: transparent;
+      border-color: #444;
+    }
+    
+    @media (max-width: 768px) {
+      .history-stats {
+        grid-template-columns: 1fr 1fr;
+      }
+      
+      .order-header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      
+      .order-actions {
+        width: 100%;
+      }
+      
+      .order-actions .btn {
+        flex: 1;
+        text-align: center;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .history-stats {
+        grid-template-columns: 1fr;
+      }
+      
+      .history-filters {
+        flex-direction: column;
+        align-items: stretch;
+      }
+      
+      .search-box {
+        max-width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Skip to main content for accessibility -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- NAVIGATION -->
+  <header class="site-header">
+    <div class="nav-bar">
+      <a href="index.html" class="logo" aria-label="Pizzeria Home">
+        <img src="images/pizzas/logo.jpg" alt="Pizzeria Logo" class="logo-img" width="40" height="40">
+        PIZZERIA
+      </a>
+      
+      <!-- Mobile menu toggle -->
+      <button class="mobile-menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      
+      <!-- Main navigation links -->
+      <nav class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="index.html#menu-section">Menu</a>
+        <a href="index.html#about">About</a>
+        <a href="index.html#contact">Contact</a>
+        <a href="index.html#deals" class="deal-badge">Hot Deals</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ORDER HISTORY SECTION -->
+  <main id="main-content" class="history-container">
+    <a href="index.html" class="back-button">← Back to Menu</a>
+    
+    <div class="history-header">
+      <h1>Your Order History</h1>
+      <p>Track past orders and reorder your favorites</p>
+    </div>
+
+    <!-- Order Statistics -->
+    <div class="history-stats" id="history-stats">
+      <div class="stat-card">
+        <div class="stat-number" id="total-orders">0</div>
+        <div class="stat-label">Total Orders</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number" id="total-spent">₹0</div>
+        <div class="stat-label">Total Spent</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number" id="favorite-pizza">-</div>
+        <div class="stat-label">Favorite Pizza</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number" id="last-order">-</div>
+        <div class="stat-label">Last Order</div>
+      </div>
+    </div>
+
+    <!-- Filters and Search -->
+    <div class="history-filters">
+      <div class="search-box">
+        <input type="text" id="search-orders" placeholder="Search orders...">
+      </div>
+      <button class="filter-btn active" data-filter="all">All Orders</button>
+      <button class="filter-btn" data-filter="delivered">Delivered</button>
+      <button class="filter-btn" data-filter="recent">Last 30 Days</button>
+      <button class="filter-btn" data-filter="favorites">Favorites Only</button>
+    </div>
+
+    <!-- Orders Grid -->
+    <div class="orders-grid" id="orders-grid">
+      <!-- Orders will be dynamically inserted here -->
+    </div>
+
+    <!-- Empty State -->
+    <div class="empty-history hidden" id="empty-history">
+      <div class="empty-icon">📦</div>
+      <h3>No orders yet</h3>
+      <p>Your order history will appear here after you place your first order. Ready to try our delicious pizzas?</p>
+      <a href="index.html" class="btn primary">Order Now</a>
+    </div>
+
+    <!-- Pagination -->
+    <div class="pagination hidden" id="pagination">
+      <button class="page-btn prev disabled" id="prev-page">‹</button>
+      <button class="page-btn active" data-page="1">1</button>
+      <button class="page-btn next" id="next-page">›</button>
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-section">
+          <h3>PIZZERIA</h3>
+          <p>Delivering happiness one pizza at a time since 2010.</p>
+          <div class="social-links">
+            <a href="#" aria-label="Facebook">📘</a>
+            <a href="#" aria-label="Instagram">📷</a>
+            <a href="#" aria-label="Twitter">🐦</a>
+          </div>
+        </div>
+        <div class="footer-section">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="index.html#menu-section">Menu</a></li>
+            <li><a href="history.html">Order History</a></li>
+            <li><a href="index.html#deals">Special Deals</a></li>
+            <li><a href="index.html#about">About Us</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h4>Support</h4>
+          <ul>
+            <li><a href="index.html#contact">Contact Us</a></li>
+            <li><a href="#">FAQs</a></li>
+            <li><a href="#">Delivery Info</a></li>
+            <li><a href="#">Terms of Service</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h4>Contact Info</h4>
+          <ul>
+            <li>📞 1-800-PIZZERIA</li>
+            <li>📍 123 Pizza Street, Food City</li>
+            <li>⏰ 11AM - 11PM Daily</li>
+            <li>✉️ hello@pizzeria.com</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 Pizzeria. All rights reserved. | Crafted with ❤️ and 🍕</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Back to top button -->
+  <button id="back-to-top" class="back-to-top" aria-label="Back to top">↑</button>
+
+  <script src="app.js"></script>
+  <script>
+    // Enhanced Order History Functionality
+    document.addEventListener('DOMContentLoaded', function() {
+      console.log('Loading order history...');
+      loadOrderHistory();
+      initHistoryFilters();
+      initMobileMenu();
+      initBackToTop();
+      initHeaderScroll();
+    });
+
+    // Initialize history page filters and search
+    function initHistoryFilters() {
+      const filterBtns = document.querySelectorAll('.filter-btn');
+      const searchInput = document.getElementById('search-orders');
+      
+      // Filter button functionality
+      filterBtns.forEach(btn => {
+        btn.addEventListener('click', function() {
+          filterBtns.forEach(b => b.classList.remove('active'));
+          this.classList.add('active');
+          filterOrders(this.dataset.filter);
+        });
+      });
+      
+      // Search functionality
+      if (searchInput) {
+        searchInput.addEventListener('input', function() {
+          const searchTerm = this.value.toLowerCase();
+          filterOrders('search', searchTerm);
+        });
+      }
+    }
+
+    // Filter orders based on criteria
+    function filterOrders(filterType, searchTerm = '') {
+      const orders = JSON.parse(localStorage.getItem('pizzeria_orders') || '[]');
+      let filteredOrders = [...orders];
+      
+      switch(filterType) {
+        case 'delivered':
+          // In a real app, we'd have status field in orders
+          filteredOrders = filteredOrders.slice(0, Math.ceil(filteredOrders.length * 0.8));
+          break;
+        case 'recent':
+          const thirtyDaysAgo = new Date();
+          thirtyDaysAgo.setDate(thirtyDaysAgo.getDate() - 30);
+          filteredOrders = filteredOrders.filter(order => new Date(order.timestamp) > thirtyDaysAgo);
+          break;
+        case 'favorites':
+          // Filter orders that contain favorite pizzas
+          const favorites = JSON.parse(localStorage.getItem('pizzeria_favorites') || '[]');
+          filteredOrders = filteredOrders.filter(order => 
+            Object.values(order.cart).some(item => favorites.includes(item.id))
+          );
+          break;
+        case 'search':
+          filteredOrders = filteredOrders.filter(order => 
+            order.orderNumber.toLowerCase().includes(searchTerm) ||
+            Object.values(order.cart).some(item => 
+              item.name.toLowerCase().includes(searchTerm)
+            )
+          );
+          break;
+        // 'all' shows all orders
+      }
+      
+      renderOrders(filteredOrders);
+    }
+
+    // Load and render order history
+    function loadOrderHistory() {
+      const orders = JSON.parse(localStorage.getItem('pizzeria_orders') || '[]');
+      updateHistoryStats(orders);
+      renderOrders(orders);
+    }
+
+    // Update history statistics
+    function updateHistoryStats(orders) {
+      if (orders.length === 0) {
+        document.getElementById('total-orders').textContent = '0';
+        document.getElementById('total-spent').textContent = '₹0';
+        document.getElementById('favorite-pizza').textContent = '-';
+        document.getElementById('last-order').textContent = '-';
+        return;
+      }
+      
+      // Total orders
+      document.getElementById('total-orders').textContent = orders.length;
+      
+      // Total spent
+      const totalSpent = orders.reduce((total, order) => {
+        const orderTotal = Object.values(order.cart).reduce((sum, item) => 
+          sum + (item.unitPrice * item.qty), 0
+        );
+        return total + orderTotal;
+      }, 0);
+      document.getElementById('total-spent').textContent = `₹${totalSpent}`;
+      
+      // Favorite pizza (most ordered)
+      const pizzaCounts = {};
+      orders.forEach(order => {
+        Object.values(order.cart).forEach(item => {
+          if (item.id && !item.id.startsWith('nonpizza-')) {
+            pizzaCounts[item.id] = (pizzaCounts[item.id] || 0) + item.qty;
+          }
+        });
+      });
+      
+      let favoritePizza = '-';
+      let maxCount = 0;
+      Object.entries(pizzaCounts).forEach(([pizzaId, count]) => {
+        if (count > maxCount) {
+          maxCount = count;
+          // In a real app, we'd look up the pizza name from the ID
+          favoritePizza = 'Pepperoni'; // Placeholder
+        }
+      });
+      
+      if (favoritePizza !== '-') {
+        document.getElementById('favorite-pizza').textContent = favoritePizza;
+      }
+      
+      // Last order date
+      const lastOrder = orders[0]; // Orders are sorted by most recent
+      const lastOrderDate = new Date(lastOrder.timestamp);
+      const now = new Date();
+      const diffTime = Math.abs(now - lastOrderDate);
+      const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+      
+      if (diffDays === 1) {
+        document.getElementById('last-order').textContent = 'Yesterday';
+      } else if (diffDays < 7) {
+        document.getElementById('last-order').textContent = `${diffDays} days ago`;
+      } else if (diffDays < 30) {
+        document.getElementById('last-order').textContent = `${Math.floor(diffDays/7)} weeks ago`;
+      } else {
+        document.getElementById('last-order').textContent = `${Math.floor(diffDays/30)} months ago`;
+      }
+    }
+
+    // Render orders to the page
+    function renderOrders(orders) {
+      const ordersGrid = document.getElementById('orders-grid');
+      const emptyHistory = document.getElementById('empty-history');
+      const pagination = document.getElementById('pagination');
+      
+      if (orders.length === 0) {
+        ordersGrid.innerHTML = '';
+        emptyHistory.classList.remove('hidden');
+        pagination.classList.add('hidden');
+        return;
+      }
+      
+      emptyHistory.classList.add('hidden');
+      pagination.classList.remove('hidden');
+      
+      // Sort orders by date (most recent first)
+      orders.sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp));
+      
+      // For now, show all orders (in a real app, we'd implement pagination)
+      ordersGrid.innerHTML = orders.map(order => {
+        const orderDate = new Date(order.timestamp);
+        const orderTotal = Object.values(order.cart).reduce((total, item) => 
+          total + (item.unitPrice * item.qty), 0
+        );
+        
+        // Generate a random status for demo purposes
+        const statuses = ['delivered', 'preparing', 'out-for-delivery', 'cancelled'];
+        const status = statuses[Math.floor(Math.random() * statuses.length)];
+        
+        return `
+          <div class="order-card">
+            <div class="order-header">
+              <div class="order-info">
+                <div class="order-number">${order.orderNumber}</div>
+                <div class="order-date">${orderDate.toLocaleString()}</div>
+              </div>
+              <div class="order-status-badge status-${status}">
+                ${status.replace('-', ' ')}
+              </div>
+            </div>
+            
+            <div class="order-items-preview">
+              ${Object.values(order.cart).slice(0, 3).map(item => 
+                `${item.qty}x ${item.name}`
+              ).join(', ')}${Object.values(order.cart).length > 3 ? '...' : ''}
+            </div>
+            
+            <div class="order-total">
+              ₹${orderTotal}
+            </div>
+
+            <div class="order-actions">
+              <button class="btn ghost" onclick="showOrderDetails('${order.orderNumber}')">
+                View Details
+              </button>
+              <button class="btn primary" onclick="reorder('${order.orderNumber}')">
+                Reorder
+              </button>
+              ${status === 'delivered' ? `
+                <button class="btn" onclick="rateOrder('${order.orderNumber}')">
+                  Rate Order
+                </button>
+              ` : ''}
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    // Rate order functionality
+    function rateOrder(orderNumber) {
+      const orders = JSON.parse(localStorage.getItem('pizzeria_orders') || '[]');
+      const order = orders.find(o => o.orderNumber === orderNumber);
+      
+      if (!order) {
+        alert('Order not found!');
+        return;
+      }
+      
+      const rating = prompt('Rate your order (1-5 stars):');
+      if (rating && rating >= 1 && rating <= 5) {
+        // In a real app, we'd save this rating
+        alert(`Thanks for your ${rating} star rating!`);
+        
+        // Update order with rating
+        order.rating = parseInt(rating);
+        localStorage.setItem('pizzeria_orders', JSON.stringify(orders));
+        
+        // Show toast notification
+        if (window.showToast) {
+          window.showToast('Thanks for your rating!', 'success');
+        }
+      }
+    }
+
+    // These functions need to be available globally
+    window.showOrderDetails = function(orderNumber) {
+      // We'll implement this to work across pages
+      localStorage.setItem('view_order_details', orderNumber);
+      window.location.href = 'index.html';
+    };
+
+    window.reorder = function(orderNumber) {
+      const orders = JSON.parse(localStorage.getItem('pizzeria_orders') || '[]');
+      const order = orders.find(o => o.orderNumber === orderNumber);
+      
+      if (order) {
+        localStorage.setItem('reorder_data', JSON.stringify(order.cart));
+        window.location.href = 'index.html';
+      } else {
+        alert('Order not found!');
+      }
+    };
+
+    // Mobile menu functionality for history page
+    function initMobileMenu() {
+      const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+      const navLinks = document.querySelector('.nav-links');
+      
+      if (mobileMenuToggle && navLinks) {
+        mobileMenuToggle.addEventListener('click', function() {
+          const isExpanded = this.getAttribute('aria-expanded') === 'true';
+          this.setAttribute('aria-expanded', !isExpanded);
+          this.classList.toggle('active');
+          navLinks.classList.toggle('active');
+        });
+      }
+    }
+
+    // Back to top functionality for history page
+    function initBackToTop() {
+      const backToTop = document.getElementById('back-to-top');
+      
+      if (backToTop) {
+        window.addEventListener('scroll', function() {
+          if (window.pageYOffset > 300) {
+            backToTop.classList.add('visible');
+          } else {
+            backToTop.classList.remove('visible');
+          }
+        });
+        
+        backToTop.addEventListener('click', function() {
+          window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+          });
+        });
+      }
+    }
+
+    // Header scroll effect for history page
+    function initHeaderScroll() {
+      const header = document.querySelector('.site-header');
+      
+      if (header) {
+        window.addEventListener('scroll', function() {
+          if (window.pageYOffset > 100) {
+            header.classList.add('scrolled');
+          } else {
+            header.classList.remove('scrolled');
+          }
+        });
+      }
+    }
+  </script>
+</body>
+</html>

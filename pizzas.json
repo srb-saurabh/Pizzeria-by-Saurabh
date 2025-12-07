@@ -1,0 +1,402 @@
+[
+  {
+    "id": "p1",
+    "name": "Margherita",
+    "description": "Classic tomato sauce, fresh mozzarella, and basil leaves",
+    "basePrice": 229,
+    "availableToppings": ["Extra Cheese", "Olives", "Jalapeños", "Mushrooms"],
+    "image": "images/pizzas/01_Margherita.jpg"
+  },
+  {
+    "id": "p2", 
+    "name": "Pepperoni Feast",
+    "description": "Double pepperoni with extra cheese on tomato base",
+    "basePrice": 259,
+    "availableToppings": ["Extra Cheese", "Olives", "Jalapeños", "Onions"],
+    "image": "images/pizzas/02_Pepperoni_Feast.jpg"
+  },
+  {
+    "id": "p3",
+    "name": "Veggie Delight", 
+    "description": "Bell peppers, onions, mushrooms, sweet corn, and olives",
+    "basePrice": 289,
+    "availableToppings": ["Extra Cheese", "Jalapeños", "Tomatoes", "Spinach"],
+    "image": "images/pizzas/03_Veggie_Delight.jpg"
+  },
+  {
+    "id": "p4",
+    "name": "BBQ Chicken",
+    "description": "Grilled chicken with BBQ sauce, onions, and cilantro", 
+    "basePrice": 319,
+    "availableToppings": ["Extra Cheese", "Bacon", "Jalapeños", "Corn"],
+    "image": "images/pizzas/04_BBQ_Chicken.jpg"
+  },
+  {
+    "id": "p5",
+    "name": "Hawaiian",
+    "description": "Ham, pineapple, and mozzarella cheese",
+    "basePrice": 199,
+    "availableToppings": ["Extra Cheese", "Bacon", "Jalapeños", "Mushrooms"],
+    "image": "images/pizzas/05_Hawaiian.jpg"
+  },
+  {
+    "id": "p6",
+    "name": "Four Cheese",
+    "description": "Mozzarella, cheddar, parmesan, and gorgonzola blend",
+    "basePrice": 229,
+    "availableToppings": ["Extra Cheese", "Olives", "Herbs", "Truffle Oil"],
+    "image": "images/pizzas/06_Four_Cheese.jpg"
+  },
+  {
+    "id": "p7",
+    "name": "Mexican Wave",
+    "description": "Spicy jalapeños, beans, corn, and salsa sauce",
+    "basePrice": 259,
+    "availableToppings": ["Extra Cheese", "Guacamole", "Sour Cream", "Onions"],
+    "image": "images/pizzas/07_Mexican_Wave.jpg"
+  },
+  {
+    "id": "p8",
+    "name": "Paneer Tikka",
+    "description": "Marinated paneer with onions and capsicum",
+    "basePrice": 289,
+    "availableToppings": ["Extra Cheese", "Mushrooms", "Sweet Corn", "Jalapeños"],
+    "image": "images/pizzas/08_Paneer_Tikka.png"
+  },
+  {
+    "id": "p9",
+    "name": "Coastal Prawn",
+    "description": "Fresh prawns with garlic and herb sauce",
+    "basePrice": 319,
+    "availableToppings": ["Extra Cheese", "Lemon Zest", "Herbs", "Chili Flakes"],
+    "image": "images/pizzas/09_Coastal_Prawn.png"
+  },
+  {
+    "id": "p10",
+    "name": "Mediterranean",
+    "description": "Feta cheese, olives, sun-dried tomatoes, and oregano",
+    "basePrice": 199,
+    "availableToppings": ["Extra Cheese", "Artichokes", "Capers", "Bell Peppers"],
+    "image": "images/pizzas/10_Mediterranean.png"
+  },
+  {
+    "id": "p11",
+    "name": "Supreme",
+    "description": "Pepperoni, mushrooms, green peppers, onions, and olives",
+    "basePrice": 229,
+    "availableToppings": ["Extra Cheese", "Jalapeños", "Bacon", "Sausage"],
+    "image": "images/pizzas/11_Supreme.png"
+  },
+  {
+    "id": "p12",
+    "name": "Spinach & Feta",
+    "description": "Fresh spinach with feta cheese and garlic sauce",
+    "basePrice": 259,
+    "availableToppings": ["Extra Cheese", "Mushrooms", "Tomatoes", "Pine Nuts"],
+    "image": "images/pizzas/12_Spinach_&Feta.png"
+  },
+  {
+    "id": "p13",
+    "name": "Chicken Tandoori",
+    "description": "Tandoori marinated chicken with onions and mint sauce",
+    "basePrice": 289,
+    "availableToppings": ["Extra Cheese", "Bell Peppers", "Jalapeños", "Herbs"],
+    "image": "images/pizzas/13_Chicken_Tandoori.png"
+  },
+  {
+    "id": "p14",
+    "name": "Mushroom Truffle",
+    "description": "Wild mushrooms with truffle oil and parmesan",
+    "basePrice": 319,
+    "availableToppings": ["Extra Cheese", "Arugula", "Prosciutto", "Herbs"],
+    "image": "images/pizzas/14_Mushroom_Truffle.png"
+  },
+  {
+    "id": "p15",
+    "name": "Greek Special",
+    "description": "Kalamata olives, feta, red onions, and oregano",
+    "basePrice": 199,
+    "availableToppings": ["Extra Cheese", "Artichokes", "Sun-dried Tomatoes", "Capers"],
+    "image": "images/pizzas/15_Greek_Special.png"
+  },
+  {
+    "id": "p16",
+    "name": "Garlic Paneer",
+    "description": "Paneer cubes with roasted garlic and herbs",
+    "basePrice": 229,
+    "availableToppings": ["Extra Cheese", "Bell Peppers", "Onions", "Sweet Corn"],
+    "image": "images/pizzas/16_Garlic_Paneer.png"
+  },
+  {
+    "id": "p17",
+    "name": "Smokey Bacon",
+    "description": "Crispy bacon with smoked cheese and BBQ sauce",
+    "basePrice": 259,
+    "availableToppings": ["Extra Cheese", "Onions", "Mushrooms", "Jalapeños"],
+    "image": "images/pizzas/17_Smokey_Bacon.png"
+  },
+  {
+    "id": "p18",
+    "name": "Pesto Primavera",
+    "description": "Pesto sauce with fresh vegetables and pine nuts",
+    "basePrice": 289,
+    "availableToppings": ["Extra Cheese", "Sun-dried Tomatoes", "Artichokes", "Olives"],
+    "image": "images/pizzas/18_Pesto_Primavera.png"
+  },
+  {
+    "id": "p19",
+    "name": "Sausage Lovers",
+    "description": "Italian sausage with peppers and onions",
+    "basePrice": 319,
+    "availableToppings": ["Extra Cheese", "Mushrooms", "Jalapeños", "Olives"],
+    "image": "images/pizzas/19_Sausage_Lovers.png"
+  },
+  {
+    "id": "p20",
+    "name": "Trio Mushroom",
+    "description": "Button, shiitake, and portobello mushrooms blend",
+    "basePrice": 199,
+    "availableToppings": ["Extra Cheese", "Truffle Oil", "Herbs", "Arugula"],
+    "image": "images/pizzas/20_Trio_Mushroom.png"
+  },
+  {
+    "id": "p21",
+    "name": "Classic Veg",
+    "description": "Tomatoes, onions, capsicum, and sweet corn",
+    "basePrice": 229,
+    "availableToppings": ["Extra Cheese", "Jalapeños", "Olives", "Mushrooms"],
+    "image": "images/pizzas/21_Classic_Veg.png"
+  },
+  {
+    "id": "p22",
+    "name": "Cheese Burst",
+    "description": "Extra cheese filled crust with double cheese topping",
+    "basePrice": 259,
+    "availableToppings": ["Extra Cheese", "Herbs", "Chili Flakes", "Garlic Butter"],
+    "image": "images/pizzas/22_Cheese_Burst.png"
+  },
+  {
+    "id": "p23",
+    "name": "Tuna Supreme",
+    "description": "Tuna flakes with onions and special sauce",
+    "basePrice": 289,
+    "availableToppings": ["Extra Cheese", "Capers", "Olives", "Bell Peppers"],
+    "image": "images/pizzas/23_Tuna_Supreme.png"
+  },
+  {
+    "id": "p24",
+    "name": "BBQ Paneer",
+    "description": "Paneer cubes in BBQ sauce with onions",
+    "basePrice": 319,
+    "availableToppings": ["Extra Cheese", "Bell Peppers", "Corn", "Jalapeños"],
+    "image": "images/pizzas/24_BBQ_Paneer.png"
+  },
+  {
+    "id": "p25",
+    "name": "Peri Peri Chicken",
+    "description": "Spicy peri peri chicken with peppers",
+    "basePrice": 199,
+    "availableToppings": ["Extra Cheese", "Onions", "Jalapeños", "Herbs"],
+    "image": "images/pizzas/25_Peri_Peri_Chicken.png"
+  },
+  {
+    "id": "p26",
+    "name": "Margarita Twist",
+    "description": "Classic margherita with a twist of herbs",
+    "basePrice": 229,
+    "availableToppings": ["Extra Cheese", "Olives", "Chili Flakes", "Garlic"],
+    "image": "images/pizzas/26_Margarita_Twist.png"
+  },
+  {
+    "id": "p27",
+    "name": "Veg Hawaiian",
+    "description": "Pineapple with mixed vegetables and cheese",
+    "basePrice": 259,
+    "availableToppings": ["Extra Cheese", "Sweet Corn", "Bell Peppers", "Olives"],
+    "image": "images/pizzas/27_Veg_Hawaiian.png"
+  },
+  {
+    "id": "p28",
+    "name": "Buffalo Chicken",
+    "description": "Spicy buffalo chicken with blue cheese sauce",
+    "basePrice": 289,
+    "availableToppings": ["Extra Cheese", "Celery", "Ranch Dressing", "Onions"],
+    "image": "images/pizzas/28_Buffalo_Chicken.png"
+  },
+  {
+    "id": "p29",
+    "name": "Italian Herb",
+    "description": "Mixed Italian herbs with olive oil and garlic",
+    "basePrice": 319,
+    "availableToppings": ["Extra Cheese", "Sun-dried Tomatoes", "Olives", "Artichokes"],
+    "image": "images/pizzas/29_Italian_Herb.png"
+  },
+  {
+    "id": "p30",
+    "name": "Loaded Veggie",
+    "description": "All vegetable toppings with extra cheese",
+    "basePrice": 199,
+    "availableToppings": ["Extra Cheese", "Jalapeños", "Olives", "Mushrooms"],
+    "image": "images/pizzas/30_Loaded_Veggie.png"
+  },
+  {
+    "id": "p31",
+    "name": "Mexican Paneer",
+    "description": "Paneer with Mexican spices and beans",
+    "basePrice": 229,
+    "availableToppings": ["Extra Cheese", "Jalapeños", "Salsa", "Guacamole"],
+    "image": "images/pizzas/31_Mexican_Paneer.png"
+  },
+  {
+    "id": "p32",
+    "name": "Chicken Alfredo",
+    "description": "Creamy alfredo sauce with grilled chicken",
+    "basePrice": 259,
+    "availableToppings": ["Extra Cheese", "Mushrooms", "Bacon", "Spinach"],
+    "image": "images/pizzas/32_Chicken_Alfredo.png"
+  },
+  {
+    "id": "p33",
+    "name": "Cottage Special",
+    "description": "Paneer with special Indian spices and herbs",
+    "basePrice": 289,
+    "availableToppings": ["Extra Cheese", "Bell Peppers", "Onions", "Sweet Corn"],
+    "image": "images/pizzas/33_Cottage_Special.png"
+  },
+  {
+    "id": "p34",
+    "name": "Tomato Basil",
+    "description": "Fresh tomatoes with basil and mozzarella",
+    "basePrice": 319,
+    "availableToppings": ["Extra Cheese", "Garlic", "Olive Oil", "Oregano"],
+    "image": "images/pizzas/34_Tomato_Basil.png"
+  },
+  {
+    "id": "p35",
+    "name": "Spicy Veggie",
+    "description": "Assorted vegetables with spicy sauce",
+    "basePrice": 199,
+    "availableToppings": ["Extra Cheese", "Jalapeños", "Chili Flakes", "Hot Sauce"],
+    "image": "images/pizzas/35_Spicy_Veggie.png"
+  },
+  {
+    "id": "p36",
+    "name": "Garlic Prawn",
+    "description": "Prawns with garlic butter and parsley",
+    "basePrice": 229,
+    "availableToppings": ["Extra Cheese", "Lemon Zest", "Herbs", "Chili"],
+    "image": "images/pizzas/36_Garlic_Prawn.png"
+  },
+  {
+    "id": "p37",
+    "name": "Tandoori Supreme",
+    "description": "Mixed tandoori vegetables with special sauce",
+    "basePrice": 259,
+    "availableToppings": ["Extra Cheese", "Onions", "Bell Peppers", "Mint Chutney"],
+    "image": "images/pizzas/37_Tandoori_Supreme.png"
+  },
+  {
+    "id": "p38",
+    "name": "Paneer Lababdar",
+    "description": "Rich and creamy paneer in tomato gravy",
+    "basePrice": 289,
+    "availableToppings": ["Extra Cheese", "Cream", "Cashews", "Herbs"],
+    "image": "images/pizzas/38_Paneer_Lababdar.png"
+  },
+  {
+    "id": "p39",
+    "name": "Honey Chilli",
+    "description": "Sweet and spicy honey chilli potatoes",
+    "basePrice": 319,
+    "availableToppings": ["Extra Cheese", "Sesame Seeds", "Spring Onions", "Chili"],
+    "image": "images/pizzas/39_Honey_Chilli.png"
+  },
+  {
+    "id": "p40",
+    "name": "Schezwan Veg",
+    "description": "Schezwan sauce with mixed vegetables",
+    "basePrice": 199,
+    "availableToppings": ["Extra Cheese", "Spring Onions", "Chili Oil", "Sesame"],
+    "image": "images/pizzas/40_Schezwan_Veg.png"
+  },
+  {
+    "id": "p41",
+    "name": "Hot & Crispy",
+    "description": "Extra crispy crust with spicy toppings",
+    "basePrice": 229,
+    "availableToppings": ["Extra Cheese", "Jalapeños", "Chili Flakes", "Hot Sauce"],
+    "image": "images/pizzas/41_Hot&_Crispy.png"
+  },
+  {
+    "id": "p42",
+    "name": "Chicken Supreme",
+    "description": "Chicken with all meat toppings and vegetables",
+    "basePrice": 259,
+    "availableToppings": ["Extra Cheese", "Bacon", "Sausage", "Pepperoni"],
+    "image": "images/pizzas/42_Chicken_Supreme.png"
+  },
+  {
+    "id": "p43",
+    "name": "Paneer Classic",
+    "description": "Traditional paneer with onions and capsicum",
+    "basePrice": 289,
+    "availableToppings": ["Extra Cheese", "Sweet Corn", "Olives", "Jalapeños"],
+    "image": "images/pizzas/43_Paneer_Classic.png"
+  },
+  {
+    "id": "p44",
+    "name": "Veggie Ranch",
+    "description": "Fresh vegetables with ranch dressing",
+    "basePrice": 319,
+    "availableToppings": ["Extra Cheese", "Bacon Bits", "Onions", "Tomatoes"],
+    "image": "images/pizzas/44_Veggie_Ranch.png"
+  },
+  {
+    "id": "p45",
+    "name": "Four Seasons",
+    "description": "Four different sections with unique toppings",
+    "basePrice": 199,
+    "availableToppings": ["Extra Cheese", "Mushrooms", "Ham", "Olives"],
+    "image": "images/pizzas/45_Four_Seasons.png"
+  },
+  {
+    "id": "p46",
+    "name": "Truffle Chicken",
+    "description": "Chicken with truffle oil and wild mushrooms",
+    "basePrice": 229,
+    "availableToppings": ["Extra Cheese", "Arugula", "Parmesan", "Herbs"],
+    "image": "images/pizzas/46_Truffle_Chicken.png"
+  },
+  {
+    "id": "p47",
+    "name": "Mediterranean Veg",
+    "description": "Mediterranean vegetables with olive tapenade",
+    "basePrice": 259,
+    "availableToppings": ["Extra Cheese", "Feta", "Olives", "Artichokes"],
+    "image": "images/pizzas/47_Mediterranean_Veg.png"
+  },
+  {
+    "id": "p48",
+    "name": "Classic Pepper",
+    "description": "Bell peppers with onions and mushrooms",
+    "basePrice": 289,
+    "availableToppings": ["Extra Cheese", "Jalapeños", "Olives", "Sweet Corn"],
+    "image": "images/pizzas/48_Classic_Pepper.png"
+  },
+  {
+    "id": "p49",
+    "name": "Lemon Herb Chicken",
+    "description": "Chicken marinated in lemon and herbs",
+    "basePrice": 319,
+    "availableToppings": ["Extra Cheese", "Spinach", "Mushrooms", "Bell Peppers"],
+    "image": "images/pizzas/49_Lemon_Herb_Chicken.png"
+  },
+  {
+    "id": "p50",
+    "name": "Chef's Special",
+    "description": "Chef's secret recipe with premium ingredients",
+    "basePrice": 199,
+    "availableToppings": ["Extra Cheese", "Truffle Oil", "Prosciutto", "Arugula"],
+    "image": "images/pizzas/50_Chef's_Special.png"
+  }
+]
