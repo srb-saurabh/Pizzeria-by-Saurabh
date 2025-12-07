@@ -3,8 +3,8 @@ A feature-rich, responsive pizza ordering website with full e-commerce functiona
 
 ## 🌐 Live Links
 
-- **🌍 Live Demo:** 
-- **💻 GitHub Repository:** 
+- **🌍 Live Demo:** https://srb-saurabh.github.io/Pizzeria-by-Saurabh/
+- **💻 GitHub Repository:** https://github.com/srb-saurabh/Pizzeria-by-Saurabh.git
 
 ## 📋 Project Overview
 Pizzeria by Saurabh is a modern web application that allows customers to browse a menu of 50+ pizzas, customize orders, track delivery, and view order history. The system includes a complete shopping cart, checkout process, and order management system.
@@ -156,10 +156,10 @@ The project includes:
 
 ### 🧪 Testing
 Browser Compatibility
-✅ Chrome (latest)
-✅ Firefox (latest)
-✅ Safari (latest)
-✅ Edge (latest)
+- ✅ Chrome (latest)
+- ✅ Firefox (latest)
+- ✅ Safari (latest)
+- ✅ Edge (latest)
 
 #### Feature Testing
 - Cart persistence across sessions
@@ -206,7 +206,7 @@ This project demonstrates:
 - Client-side data persistence
 
 ### 👏 Credits
-### 👨‍💻 Developer
+#### 👨‍💻 Developer
 **Saurabh Bharti**  
 - Design: Custom dark theme with premium aesthetics
 - Images: High-quality pizza photography
